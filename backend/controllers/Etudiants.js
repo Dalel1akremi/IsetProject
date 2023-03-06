@@ -6,6 +6,26 @@ import jwt from "jsonwebtoken";
 
 
 
+export const RegisterEtu = async(req, res) => {
+    const { name, email,num_insc,cin, password, confPassword } = req.body;
+    if(password !== confPassword) return res.status(400).json({msg: "Password and Confirm Password is not compatible"});
+    const salt = await bcrypt.genSalt();
+    const hashPassword = await bcrypt.hash(password, salt);
+    try {
+        await Etudiants.create({       
+            name: name,
+            email: email,
+            num_insc: num_insc,
+            cin: cin, 
+            password: hashPassword,
+        });
+        res.json({msg: "Register secessuful"});
+    } catch (error) {
+        console.log(error);
+        return res.status(404).json({msg: "you have an count already or numero insecrit not found for fix the problem go to Iset for Register"});
+
+    } 
+}
 
 
 
