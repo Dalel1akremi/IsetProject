@@ -41,7 +41,7 @@ export const LoginEtu = async(req, res) => {
        
         const match = await bcrypt.compare(req.body.password, etudiant[0].password);
         console.log(match)
-        if(match) return res.status(200).json({msg: "etudiant existe"});
+        if(!match) return res.status(400).json({msg: "Wrong Password"});
         const userId = etudiant[0].id;
         const name = etudiant[0].name;
         const email = etudiant[0].email;
