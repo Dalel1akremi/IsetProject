@@ -65,3 +65,12 @@ export const LoginEtu = async(req, res) => {
         res.status(404).json({msg:"please register "});
     }
 }
+export const getAllAffiches = async ( req, res) => {
+
+    const affiche = await Etudiants.findAll({})
+    res.status(200).send(affiche)
+    console.log(affiche)
+ 
+
+
+}
