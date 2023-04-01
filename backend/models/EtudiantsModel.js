@@ -3,8 +3,11 @@ import db from "../config/Database.js";
 
 const { DataTypes } = Sequelize;
 
-const Etudiants = db.define('etudiants',{
-    name:{
+const Etudiants= db.define('etudiants',{
+    firstname:{
+        type: DataTypes.STRING
+    },
+    lastname:{
         type: DataTypes.STRING
     },
     email:{
@@ -18,9 +21,6 @@ const Etudiants = db.define('etudiants',{
     },
     password:{
         type: DataTypes.STRING
-    },
-    refresh_token:{
-        type: DataTypes.TEXT
     }
 },{
     freezeTableName:true
