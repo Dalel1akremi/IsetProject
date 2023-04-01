@@ -1,25 +1,26 @@
 import { useState } from "react";
 import axios from "axios";
-import { Link} from "react-router-dom";
 import './Singup.css';
 
 
 const Signup = () => {
-	const [name, setName] = useState('');
-    const [email, setEmail] = useState('');
-    const [num_insc, setNum_insc] = useState('');
-    const [cin, setCin] = useState('');
+	const [firstname,setFirstName] = useState('');
+	const [lastname,setLastName] = useState('');
+	const [email, setEmail] = useState('');
+	const [cin, setCin] = useState('');
+	const [num_insc, setNum_insc] = useState('');
+	const [confPassword, setConfPassword] = useState('');
     const [password, setPassword] = useState('');
-    const [confPassword, setConfPassword] = useState('');
     const [msg, setMsg] = useState('');
 	const Register= async (e) => {
         e.preventDefault();
         try {
             await axios.post('http://localhost:3000/RegisterEtu', {
-                name:name,
+                firstname:firstname,
+				lastname:lastname,
+                email: email,
 				cin:cin,
 				num_insc:num_insc,
-                email: email,
                 password: password,
 				confPassword:confPassword
             });
@@ -48,28 +49,38 @@ const Signup = () => {
 						<h1>Create Account</h1>
 						<input
 							type="text"
-							placeholder="name"
-							name="name"
-							value={name} onChange={(e) => setName(e.target.value)} 
-							required
-							className="input"
-						/>
-						<input
-							type="password"
-							placeholder="CIN"
-							name="password"
-							value={cin} onChange={(e) => setCin(e.target.value)}
+							placeholder="First Name"
+							name="firstName"
+							value={firstname} onChange={(e) => setFirstName(e.target.value)} 
 							required
 							className="input"
 						/>
 						<input
 							type="text"
-							placeholder="NUM_insc"
-							name="NUM_insc"
-							value={num_insc} onChange={(e) => setNum_insc(e.target.value)} 
+							placeholder="Last Name"
+							name="lastName"
+							value={lastname} onChange={(e) => setLastName(e.target.value)} 
 							required
 							className="input"
 						/>
+					
+					<input
+							type="text"
+							placeholder="Numero d'insecrit"
+							name="Numero d'insecrit"
+							value={num_insc} onChange={(e) => setNum_insc(e.target.value)} 
+							required
+							className="input"
+						/> 
+						<input
+							type="text"
+							placeholder="numero cin"
+							name="Numero cin"
+							value={cin} onChange={(e) => setCin(e.target.value)} 
+							required
+							className="input"
+						/> 
+						
 						<input
 							type="email"
 							placeholder="Email"
@@ -89,12 +100,12 @@ const Signup = () => {
 						<input
 							type="password"
 							placeholder="confPassword"
-							name="password"
+							name="confpassword"
 							value={confPassword} onChange={(e) => setConfPassword(e.target.value)}
 							required
 							className="input"
 						/>
-						{/* {error && <div className="error_msg">{error}</div>} */}
+							{msg && <div className="error_msg">{msg}</div>}
 						<button type="submit" className="green_btn">
 							Sing Up
 						</button>

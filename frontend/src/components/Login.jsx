@@ -18,8 +18,6 @@ const Login = () => {
 		password: password
 	});
 				localStorage.setItem("token",res.data);
-				 
-				
 				window.location = "/Home";
         } catch (error) {
 			if (error.response)   {
