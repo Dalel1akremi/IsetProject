@@ -67,12 +67,29 @@ export const LoginEtu = async(req, res) => {
         res.status(404).json({msg:"please register "});
     }
 }
+export const LogoutEtu = async(req, res) => {
+    const refreshToken = req.cookies.refreshToken;
+    if(!refreshToken) return res.sendStatus(204);
+    const etudiant = await Etudiants.findAll({
+        where:{
+            refresh_token: refreshToken
+        }
+    });
+    if(!etudiant[0]) return res.sendStatus(204);
+    const userId = etudiant[0].id;
+    await Etudiants.update({refresh_token: null},{
+        where:{
+            id: userId
+        }
+    });
+    res.clearCookie('refreshToken');
+    return res.sendStatus(200);
+}
+
+
 export const getAllAffiches = async ( req, res) => {
 
-    const affiche = await Etudiants.findAll({})
+    let affiche = await Etudiants.findAll({})
     res.status(200).send(affiche)
     console.log(affiche)
- 
-
-
 }
