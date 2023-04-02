@@ -53,3 +53,23 @@ ALTER TABLE `chef_departement`
 =======
 >>>>>>> a01a598183f4b8a764ce43691938dbbb0e50fd90
 COMMIT;
+CREATE TABLE admin(
+   id VARCHAR(50),
+   name VARCHAR(50) unique,
+   email VARCHAR(50),
+   password VARCHAR(255),
+   refresh_token VARCHAR(255),
+   createdAt DATETIME NOT NULL,
+   updatedAt DATETIME NOT NULL,
+   cin VARCHAR(50) NOT NULL,
+   code_previlege VARCHAR(50) NOT NULL,
+   PRIMARY KEY(id)
+);
+
+
+--
+-- AUTO_INCREMENT for table `admin`
+--
+ALTER TABLE `admin`
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=3;
+COMMIT;
