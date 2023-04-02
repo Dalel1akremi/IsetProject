@@ -25,6 +25,7 @@ CREATE TABLE etudiants(
 --
 ALTER TABLE `etudiants`
   MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=1;
+<<<<<<< HEAD
 COMMIT;
 
 -----table de chef departement ----
@@ -49,4 +50,6 @@ CREATE TABLE chef_departement(
 );
 ALTER TABLE `chef_departement`
   MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=1;
+=======
+>>>>>>> a01a598183f4b8a764ce43691938dbbb0e50fd90
 COMMIT;
