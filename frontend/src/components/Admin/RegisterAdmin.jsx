@@ -1,30 +1,26 @@
 import { useState } from "react";
 import axios from "axios";
-import './Singup.css';
-
-
-const Signup = () => {
-	const [firstname,setFirstName] = useState('');
-	const [lastname,setLastName] = useState('');
+import "./RegisterAdmin.css";
+const RegisterAdmin = () => {
+	const [name,setName] = useState('');
 	const [email, setEmail] = useState('');
 	const [cin, setCin] = useState('');
-	const [num_insc, setNum_insc] = useState('');
+	const [code_previlege, setCode_previlege] = useState('');
 	const [confPassword, setConfPassword] = useState('');
     const [password, setPassword] = useState('');
     const [msg, setMsg] = useState('');
-	const Register= async (e) => {
+	const RegisterA= async (e) => {
         e.preventDefault();
         try {
-            await axios.post('http://localhost:3000/RegisterEtu', {
-                firstname:firstname,
-				lastname:lastname,
+            await axios.post('http://localhost:3000/RegisterAdmin', {
+                name:name,
                 email: email,
 				cin:cin,
-				num_insc:num_insc,
+				code_previlege:code_previlege,
                 password: password,
 				confPassword:confPassword
             });
-            window.location = "/login";
+            window.location = "/LoginAdmin";
         } catch (error) {
             if (error.response) {
                 setMsg(error.response.data.msg);
@@ -38,37 +34,29 @@ const Signup = () => {
 			<div className="signup_form_container">
 				<div className="left">
 					<h1>Welcome Back</h1>
-					<a href="/login">
+					<a href="/loginAdmin">
 						<button type="button" className="white_btn">
-							Sing in
+							Sign in
 						</button>
 					</a>
 				</div>
 				<div className="right">
-					<form className="form_container" onSubmit={Register}  >
-						<h1>Create Account</h1>
+					<form className="form_container" onSubmit={RegisterA}  >
+						<h1 id="x">Create Account Admin</h1>
 						<input
 							type="text"
 							placeholder="First Name"
 							name="firstName"
-							value={firstname} onChange={(e) => setFirstName(e.target.value)} 
+							value={name} onChange={(e) => setName(e.target.value)} 
 							required
 							className="input"
 						/>
-						<input
-							type="text"
-							placeholder="Last Name"
-							name="lastName"
-							value={lastname} onChange={(e) => setLastName(e.target.value)} 
-							required
-							className="input"
-						/>
-					
+						
 					<input
 							type="text"
-							placeholder="Numero d'insecrit"
-							name="Numero d'insecrit"
-							value={num_insc} onChange={(e) => setNum_insc(e.target.value)} 
+							placeholder="code_previlege"
+							name="code_previlege"
+							value={code_previlege} onChange={(e) => setCode_previlege(e.target.value)} 
 							required
 							className="input"
 						/> 
@@ -116,4 +104,4 @@ const Signup = () => {
 	);
 };
 
-export default Signup;
+export default RegisterAdmin;

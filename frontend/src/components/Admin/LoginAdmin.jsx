@@ -1,24 +1,24 @@
 import { useState } from "react";
 import axios from "axios";
 
-import "./Login.css";
+import "./LoginAdmin.css";
 
 
-const Login = () => {
+const LoginAdmin = () => {
 	const [email, setEmail] = useState('');
     const [password, setPassword] = useState('');
     const [msg, setMsg] = useState('');
 
-    const Auth = async (e) => {
+    const AuthA = async (e) => {
         e.preventDefault();
         try {
-		const { data: res } = await axios.post('http://localhost:3000/LoginEtu', {
+		const { data: res } = await axios.post('http://localhost:3000/LoginAdmin', {
 					
 		email: email,
 		password: password
 	});
 				localStorage.setItem("token",res.data);
-				window.location = "/Home";
+				window.location = "/DashbordAdmin";
         } catch (error) {
 			if (error.response)   {
                 setMsg(error.response.data.msg);
@@ -32,8 +32,8 @@ const Login = () => {
 		<div className="login_container">
 			<div className="login_form_container">
 				<div className="right">
-					<form  onSubmit={Auth}  className="form_container" >
-						<h1>Login to Your Account</h1>
+					<form  onSubmit={AuthA}  className="form_container" >
+						<h1 id="x">Login to Your Account Admin </h1>
 						<input
 							type="email"
 							placeholder="Email"
@@ -60,7 +60,7 @@ const Login = () => {
 				</div>
 				<div className="left ">
 					<h1>New Here ?</h1>
-					<a href="/signup">
+					<a href="/RegisterAdmin">
 						<button type="button" className="white_btn">
 							Sing Up
 						</button>
@@ -71,4 +71,4 @@ const Login = () => {
 	);
 };
 
-export default Login;
+export default LoginAdmin;

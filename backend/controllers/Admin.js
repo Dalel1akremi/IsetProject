@@ -2,7 +2,6 @@ import Admin from "../models/AdminModel.js";
 import bcrypt from "bcrypt";
 import jwt from "jsonwebtoken";
 export const RegisterAdmin = async(req, res) => {
-    console.log("hello");
     const { name, email,cin,code_previlege,password, confPassword } = req.body;
     if(password !== confPassword) return res.status(400).json({msg: "Password and Confirm Password is not compatible"});
     const salt = await bcrypt.genSalt();

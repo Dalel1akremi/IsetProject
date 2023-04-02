@@ -6,10 +6,13 @@
 	align-items: center;
 	justify-content: center;
 }
-
+#x{
+	height: 50px;
+	color: blue;
+}
 .signup_form_container {
 	width: 900px;
-	height: 500px;
+	height: 550px;
 	display: flex;
 	border-radius: 10px;
 	box-shadow: 0px 3px 3px -2px rgb(0 0 0 / 20%),
@@ -22,7 +25,7 @@
 	flex-direction: column;
 	align-items: center;
 	justify-content: center;
-	background-color:gray;
+	background-color: blue;
 	border-top-left-radius: 10px;
 	border-bottom-left-radius: 10px;
 }
@@ -82,6 +85,7 @@
 .white_btn,
 .green_btn {
 	border: none;
+	color: blue;
 	outline: none;
 	padding: 12px 0;
 	background-color: white;
@@ -93,7 +97,7 @@
 }
 
 .green_btn {
-	background-color:gray;
-	color: white;
+	background-color:blue;
+    color: white;
 	margin: 10px;
 }

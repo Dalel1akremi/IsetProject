@@ -1,26 +1,33 @@
 
 import React from "react";
-import Home from "./components/Etudiants/Home";
-import Login from "./components/Etudiants/Login";
-import Signup from "./components/Etudiants/Singup";
 import { Fragment } from "react";
-import { BrowserRouter,Route,Redirect} from "react-router-dom";
-import './App.css'
+import { BrowserRouter,Route,} from "react-router-dom";
+
+
+import LoginChef  from "./components/Chef-Department/LoginChef";
+import RegisterChef from "./components/Chef-Department/RegisterChef";
+import RegisterEtu from "./components/Etudiants/RegisterEtu";
+import LoginEtu from "./components/Etudiants/LoginEtu";
+import LoginAdmin from "./components/Admin/LoginAdmin";
+import RegisterAdmin from "./components/Admin/RegisterAdmin";
 
 
 
 
 
 function App() {
-	const user = localStorage.getItem("token");
+
 	return (
     
     <Fragment>
       <BrowserRouter>
-      <Route  path="/signup" ><Signup/></Route>
-		 	<Route path="/login" ><Login/></Route>
-       {user && <Route path="/" ><Home/></Route>} 
-			{! user && <Route  exact path="/" > <Redirect  to="/login" /></Route>}
+      <Route  path="/RegisterEtu"><RegisterEtu/></Route>
+		  <Route  path="/LoginEtu"><LoginEtu/></Route>
+      <Route  path="/RegisterChef"><RegisterChef/></Route>
+		  <Route  path="/Loginchef"><LoginChef/></Route>
+      <Route  path="/RegisterAdmin"><RegisterAdmin/></Route>
+		  <Route  path="/LoginAdmin"><LoginAdmin/></Route>
+      
       </BrowserRouter>
     </Fragment>
 
