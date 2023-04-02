@@ -1,8 +1,8 @@
 
 import React from "react";
-import Home from "./components/Home";
-import Login from "./components/Login";
-import Signup from "./components/Singup";
+import Home from "./components/Etudiants/Home";
+import Login from "./components/Etudiants/Login";
+import Signup from "./components/Etudiants/Singup";
 import { Fragment } from "react";
 import { BrowserRouter,Route,Redirect} from "react-router-dom";
 import './App.css'
