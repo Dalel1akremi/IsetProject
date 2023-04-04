@@ -60,7 +60,7 @@ const LoginEtu = () => {
 				</div>
 				<div className="left ">
 					<h1>New Here ?</h1>
-					<a href="/signup">
+					<a href="/RegisterEtu">
 						<button type="button" className="white_btn">
 							Sing Up
 						</button>

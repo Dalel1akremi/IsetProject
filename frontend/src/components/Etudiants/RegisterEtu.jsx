@@ -22,7 +22,7 @@ const RegisterEtu= () => {
                 password: password,
 				confPassword:confPassword
             });
-            window.location = "/login";
+            window.location = "/LoginEtu";
         } catch (error) {
             if (error.response) {
                 setMsg(error.response.data.msg);
@@ -36,7 +36,7 @@ const RegisterEtu= () => {
 			<div className="signup_form_container">
 				<div className="left">
 					<h1>Welcome Back</h1>
-					<a href="/login">
+					<a href="/LoginEtu">
 						<button type="button" className="white_btn">
 							Sing in
 						</button>
