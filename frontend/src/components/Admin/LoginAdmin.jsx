@@ -52,6 +52,7 @@ const LoginAdmin = () => {
 							required
 							className="input"
 						/>
+						
 						{msg && <div className="error_msg">{msg}</div>}
 						<button type="submit" className="green_btn">
 							Sing In
