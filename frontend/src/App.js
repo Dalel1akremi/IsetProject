@@ -22,7 +22,7 @@ function App() {
     <Fragment>
       <BrowserRouter>
       <Route  path="/RegisterEtu"><RegisterEtu/></Route>
-		  <Route  path="/LoginEtu"><LoginEtu/></Route>
+		  <Route  path="/"><LoginEtu/></Route>
       <Route  path="/RegisterChef"><RegisterChef/></Route>
 		  <Route  path="/Loginchef"><LoginChef/></Route>
       <Route  path="/RegisterAdmin"><RegisterAdmin/></Route>
