@@ -34,7 +34,7 @@ const RegisterEtu= () => {
 	return (
 		<div className="signup_container">
 			<div className="signup_form_container">
-				<div className="left">
+				< div className="left">
 					<h1>Welcome Back</h1>
 					<a href="/LoginEtu">
 						<button type="button" className="white_btn">
